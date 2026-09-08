@@ -1,0 +1,2585 @@
+{
+  "engine": "Cortex_Omega_v2.0",
+  "metadata": {
+    "generatedAt": "2026-09-08T20:29:42.967Z",
+    "durationMs": 6,
+    "metrics": {
+      "startTime": 1788899382961,
+      "nodesProcessed": 75,
+      "risksIngested": 66,
+      "risksAfterDedup": 66,
+      "attackPathsFound": 0,
+      "maxAttackDepth": 0,
+      "centralityComputed": true,
+      "centralityMethod": "exact_brandes_75_nodes",
+      "bayesianUpdates": 3,
+      "falsePositivesSuppressed": 0,
+      "suppressionBreakdown": {},
+      "workerThreadsUsed": 0,
+      "workerTimeouts": 0,
+      "crossEngineCorrelations": 0,
+      "peakMemoryMB": 13
+    }
+  },
+  "summary": {
+    "totalRisks": 66,
+    "suppressed": 0,
+    "globalScore": 18,
+    "grade": "F",
+    "riskBreakdown": {
+      "CRITICAL": 0,
+      "HIGH": 7,
+      "MEDIUM": 10,
+      "LOW": 49
+    },
+    "failedRuleCount": 0,
+    "severityCounts": {
+      "CRITICAL": 0,
+      "HIGH": 7,
+      "MEDIUM": 10,
+      "LOW": 49
+    },
+    "complianceReport": {
+      "generatedAt": "2026-09-08T20:29:42.960Z",
+      "standards": {
+        "GDPR": {
+          "violations": [
+            {
+              "riskId": "DATA_PII_EMAIL",
+              "severity": "HIGH",
+              "location": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+              "description": "Detected DATA_PII_EMAIL in field 'userid-placeholder' via FORMAT_ENGINE (confidence: 96%).",
+              "clause": "Art. 5",
+              "requirement": "Data Minimization Principle"
+            },
+            {
+              "severity": "HIGH",
+              "location": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+              "description": "Personal Data Impact: Sensitive Field Detected: userid-placeholder",
+              "clause": "GDPR Art. 32",
+              "requirement": "Security of processing personal data"
+            },
+            {
+              "riskId": "DATA_PII_PHONE",
+              "severity": "MEDIUM",
+              "location": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+              "description": "Detected DATA_PII_PHONE in field 'phone-label' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+              "clause": "Art. 5",
+              "requirement": "Data Minimization Principle"
+            }
+          ],
+          "status": "AT_RISK"
+        },
+        "HIPAA": {
+          "violations": [
+            {
+              "riskId": "DATA_PII_EMAIL",
+              "severity": "HIGH",
+              "location": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+              "description": "Detected DATA_PII_EMAIL in field 'userid-placeholder' via FORMAT_ENGINE (confidence: 96%).",
+              "clause": "§164.514",
+              "requirement": "De-identification of PHI"
+            },
+            {
+              "riskId": "DATA_PII_PHONE",
+              "severity": "MEDIUM",
+              "location": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+              "description": "Detected DATA_PII_PHONE in field 'phone-label' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+              "clause": "§164.514",
+              "requirement": "De-identification of PHI"
+            }
+          ],
+          "status": "AT_RISK"
+        },
+        "PCI_DSS": {
+          "violations": [
+            {
+              "severity": "CRITICAL",
+              "location": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+              "description": "Payment Data Impact: Sensitive Field Detected: forgot-password",
+              "clause": "PCI-DSS Req 3",
+              "requirement": "Protect stored cardholder data"
+            }
+          ],
+          "status": "NON_COMPLIANT"
+        },
+        "SOC2": {
+          "violations": [
+            {
+              "riskId": "RATE_LIMIT_MISSING_LOGIN",
+              "severity": "HIGH",
+              "location": "/login/locales/en/translation.json",
+              "description": "GET /login/locales/en/translation.json handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+              "clause": "A1.2",
+              "requirement": "Availability / DDoS Protection"
+            },
+            {
+              "riskId": "RATE_LIMIT_MISSING_LOGIN",
+              "severity": "HIGH",
+              "location": "/login/api/authorize/realms",
+              "description": "GET /login/api/authorize/realms handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+              "clause": "A1.2",
+              "requirement": "Availability / DDoS Protection"
+            },
+            {
+              "riskId": "RATE_LIMIT_MISSING_LOGIN",
+              "severity": "HIGH",
+              "location": "/login/getSSORedirect",
+              "description": "GET /login/getSSORedirect handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+              "clause": "A1.2",
+              "requirement": "Availability / DDoS Protection"
+            }
+          ],
+          "status": "AT_RISK"
+        },
+        "OWASP": {
+          "violations": [
+            {
+              "riskId": "RATE_LIMIT_MISSING_LOGIN",
+              "severity": "HIGH",
+              "location": "/login/locales/en/translation.json",
+              "description": "GET /login/locales/en/translation.json handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+              "clause": "API4:2023",
+              "requirement": "Unrestricted Resource Consumption"
+            },
+            {
+              "riskId": "RATE_LIMIT_MISSING_LOGIN",
+              "severity": "HIGH",
+              "location": "/login/api/authorize/realms",
+              "description": "GET /login/api/authorize/realms handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+              "clause": "API4:2023",
+              "requirement": "Unrestricted Resource Consumption"
+            },
+            {
+              "riskId": "RATE_LIMIT_MISSING_LOGIN",
+              "severity": "HIGH",
+              "location": "/login/getSSORedirect",
+              "description": "GET /login/getSSORedirect handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+              "clause": "API4:2023",
+              "requirement": "Unrestricted Resource Consumption"
+            }
+          ],
+          "status": "AT_RISK"
+        }
+      },
+      "metrics": {
+        "startTime": 1788899382957,
+        "endTime": null,
+        "complianceViolations": 10,
+        "gdprImpacts": 2,
+        "pciImpacts": 0,
+        "hipaaImpacts": 2,
+        "independentFindings": 0
+      }
+    },
+    "topThreats": [
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "54.7%",
+        "location": "/login/locales/en/translation.json",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "51.0%",
+        "location": "/v1/mgmt/idaas/user/status/",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "56.0%",
+        "location": "/login/api/authorize/realms",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "50.6%",
+        "location": "/login/getSSORedirect",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "52.4%",
+        "location": "/dle/ibm/web/p_278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777f.js",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "51.0%",
+        "location": "/utag/ibm/web/prod/utag.js",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "JWT_ALGORITHM_NOT_LOCKED",
+        "severity": "HIGH",
+        "score": 66,
+        "probability": "51.0%",
+        "location": "/notice",
+        "engines": [
+          "AuthAnalyzer"
+        ]
+      },
+      {
+        "title": "Sensitive Field Detected: forgot-password",
+        "severity": "MEDIUM",
+        "score": 55,
+        "probability": "43.9%",
+        "engines": [
+          "DataScanner"
+        ]
+      },
+      {
+        "title": "Sensitive Field Detected: hide-password",
+        "severity": "MEDIUM",
+        "score": 55,
+        "probability": "43.9%",
+        "engines": [
+          "DataScanner"
+        ]
+      },
+      {
+        "title": "Sensitive Field Detected: password-field-error-message",
+        "severity": "MEDIUM",
+        "score": 55,
+        "probability": "43.9%",
+        "engines": [
+          "DataScanner"
+        ]
+      }
+    ],
+    "attackPaths": {
+      "totalDiscovered": 0,
+      "maxDepth": 0,
+      "criticalPaths": 0
+    }
+  },
+  "topology": {
+    "nodeCount": 75,
+    "edgeCount": 134,
+    "centralityMethod": "exact_brandes_75_nodes",
+    "topChokepoints": [
+      {
+        "nodeId": "SCHEMA_INLINE_31",
+        "centrality": "0.00518327",
+        "path": "SCHEMA_INLINE_31"
+      },
+      {
+        "nodeId": "SCHEMA_INLINE_30",
+        "centrality": "0.00444280",
+        "path": "SCHEMA_INLINE_30"
+      },
+      {
+        "nodeId": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse",
+        "centrality": "0.00388745",
+        "path": "SCHEMA_#/components/schemas/LoginLocalesEnTranslationJsonGetResponse"
+      },
+      {
+        "nodeId": "SCHEMA_INLINE_32",
+        "centrality": "0.00370233",
+        "path": "SCHEMA_INLINE_32"
+      },
+      {
+        "nodeId": "SCHEMA_INLINE_29",
+        "centrality": "0.00333210",
+        "path": "SCHEMA_INLINE_29"
+      }
+    ]
+  },
+  "results": {
+    "/login/locales/en/translation.json": {
+      "method": "GET",
+      "flags": 512,
+      "maxSeverity": "HIGH",
+      "securityScore": 63,
+      "findings": [
+        {
+          "id": "a955c4c24d1dfe37",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "54.7%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "446fca006ff28388",
+          "type": "RATE_LIMIT_MISSING_LOGIN",
+          "title": "Authentication Endpoint Without Rate Limiting",
+          "severity": "MEDIUM",
+          "score": 38,
+          "probability": "31.5%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "CorsRateLimiter",
+          "detectedByEngines": [
+            "CorsRateLimiter"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "RATE_LIMIT_MISSING_LOGIN"
+          ],
+          "description": "GET /login/locales/en/translation.json handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+          "remediation": "Implement strict rate limiting (≤5 req/min per IP) with progressive delays and account lockout.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": null,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": false
+        },
+        {
+          "id": "fd41dcb97d394dd4",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "16.6%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "/v1/mgmt/idaas/user/status/": {
+      "method": "GET",
+      "flags": 512,
+      "maxSeverity": "HIGH",
+      "securityScore": 74,
+      "findings": [
+        {
+          "id": "57dd1d0eedfe914c",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "51.0%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "06ee1ff110337ba4",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.4%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "/login/api/authorize/realms": {
+      "method": "GET",
+      "flags": 512,
+      "maxSeverity": "HIGH",
+      "securityScore": 63,
+      "findings": [
+        {
+          "id": "1af50b36c3256cc6",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "56.0%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "9787e1cceaf7350d",
+          "type": "RATE_LIMIT_MISSING_LOGIN",
+          "title": "Authentication Endpoint Without Rate Limiting",
+          "severity": "MEDIUM",
+          "score": 38,
+          "probability": "32.2%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "CorsRateLimiter",
+          "detectedByEngines": [
+            "CorsRateLimiter"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "RATE_LIMIT_MISSING_LOGIN"
+          ],
+          "description": "GET /login/api/authorize/realms handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+          "remediation": "Implement strict rate limiting (≤5 req/min per IP) with progressive delays and account lockout.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": null,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": false
+        },
+        {
+          "id": "2759d4bd5966d30d",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "17.0%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "/login/getSSORedirect": {
+      "method": "GET",
+      "flags": 0,
+      "maxSeverity": "HIGH",
+      "securityScore": 57,
+      "findings": [
+        {
+          "id": "134efcd11d9656e7",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "50.6%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "063e3701662c1b6b",
+          "type": "RATE_LIMIT_MISSING_LOGIN",
+          "title": "Authentication Endpoint Without Rate Limiting",
+          "severity": "MEDIUM",
+          "score": 38,
+          "probability": "29.2%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "CorsRateLimiter",
+          "detectedByEngines": [
+            "CorsRateLimiter"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "RATE_LIMIT_MISSING_LOGIN"
+          ],
+          "description": "GET /login/getSSORedirect handles authentication but has no documented rate limiting. Vulnerable to brute force, credential stuffing, and password spraying attacks.",
+          "remediation": "Implement strict rate limiting (≤5 req/min per IP) with progressive delays and account lockout.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": null,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": false
+        },
+        {
+          "id": "d975ffbb623256a0",
+          "type": "LOG_INJECTION_RISK",
+          "title": "Potential Log Injection via Unvalidated Header: state",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.3%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "LoggingMonitor",
+          "detectedByEngines": [
+            "LoggingMonitor"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "LOG_INJECTION_RISK"
+          ],
+          "description": "The query parameter 'state' accepts arbitrary strings with no pattern or length constraints. If this value is written to logs unsanitised, an attacker can inject CRLF sequences (\\r\\n) to forge fake log entries, potentially hiding malicious activity or framing legitimate users.",
+          "remediation": "Add a restrictive pattern (e.g. ^[\\w\\s,;=./@:-]{1,256}$) and maxLength to this parameter schema.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": null,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": true
+        },
+        {
+          "id": "bf43d19e2ae080b6",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.3%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "/dle/ibm/web/p_278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777f.js": {
+      "method": "GET",
+      "flags": 512,
+      "maxSeverity": "HIGH",
+      "securityScore": 74,
+      "findings": [
+        {
+          "id": "e74e48ad2d78775f",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "52.4%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "bc3c08e50bad3166",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.9%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "/utag/ibm/web/prod/utag.js": {
+      "method": "GET",
+      "flags": 0,
+      "maxSeverity": "HIGH",
+      "securityScore": 74,
+      "findings": [
+        {
+          "id": "f389335dcd8b8342",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "51.0%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "08ad7cd988354b0d",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.4%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "/notice": {
+      "method": "GET",
+      "flags": 0,
+      "maxSeverity": "HIGH",
+      "securityScore": 68,
+      "findings": [
+        {
+          "id": "175cadd1a857a25f",
+          "type": "JWT_ALGORITHM_NOT_LOCKED",
+          "title": "JWT_ALGORITHM_NOT_LOCKED",
+          "severity": "HIGH",
+          "score": 66,
+          "probability": "51.0%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "AuthAnalyzer",
+          "detectedByEngines": [
+            "AuthAnalyzer"
+          ],
+          "correlationNote": "Sovereign finding — logically-certain, Bayesian penalty bypassed",
+          "evidence": [
+            "JWT_ALGORITHM_NOT_LOCKED"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Sovereign finding — logically-certain, Bayesian penalty bypassed"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        },
+        {
+          "id": "c0287efcdabb7f68",
+          "type": "LOG_INJECTION_RISK",
+          "title": "Potential Log Injection via Unvalidated Header: c",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.4%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "LoggingMonitor",
+          "detectedByEngines": [
+            "LoggingMonitor"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "LOG_INJECTION_RISK"
+          ],
+          "description": "The query parameter 'c' accepts arbitrary strings with no pattern or length constraints. If this value is written to logs unsanitised, an attacker can inject CRLF sequences (\\r\\n) to forge fake log entries, potentially hiding malicious activity or framing legitimate users.",
+          "remediation": "Add a restrictive pattern (e.g. ^[\\w\\s,;=./@:-]{1,256}$) and maxLength to this parameter schema.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": null,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": true
+        },
+        {
+          "id": "1943e4174ae7d403",
+          "type": "BEARER_TOKEN_NO_EXPIRY",
+          "title": "BEARER_TOKEN_NO_EXPIRY",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "15.4%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "SecurityCore",
+          "detectedByEngines": [
+            "SecurityCore"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "BEARER_TOKEN_NO_EXPIRY"
+          ],
+          "description": "Security anomaly detected.",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.65,
+          "bypassBayesian": false,
+          "_ctxUncertainty": null,
+          "_ctxConflicts": null,
+          "_ctxSpecActionable": null
+        }
+      ]
+    },
+    "Global": {
+      "flags": 512,
+      "maxSeverity": "MEDIUM",
+      "securityScore": 0,
+      "findings": [
+        {
+          "id": "c43a6a84685d63cc",
+          "type": "DATA_CREDENTIAL",
+          "title": "Sensitive Field Detected: forgot-password",
+          "severity": "MEDIUM",
+          "score": 55,
+          "probability": "43.9%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_CREDENTIAL"
+          ],
+          "description": "Detected DATA_CREDENTIAL in field 'forgot-password' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "928211cded5f2156",
+          "type": "DATA_CREDENTIAL",
+          "title": "Sensitive Field Detected: hide-password",
+          "severity": "MEDIUM",
+          "score": 55,
+          "probability": "43.9%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_CREDENTIAL"
+          ],
+          "description": "Detected DATA_CREDENTIAL in field 'hide-password' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "ea9f697cc67be143",
+          "type": "DATA_CREDENTIAL",
+          "title": "Sensitive Field Detected: password-field-error-message",
+          "severity": "MEDIUM",
+          "score": 55,
+          "probability": "43.9%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_CREDENTIAL"
+          ],
+          "description": "Detected DATA_CREDENTIAL in field 'password-field-error-message' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "ab0729dcdbca6116",
+          "type": "DATA_CREDENTIAL",
+          "title": "Sensitive Field Detected: password-field-title",
+          "severity": "MEDIUM",
+          "score": 55,
+          "probability": "43.9%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_CREDENTIAL"
+          ],
+          "description": "Detected DATA_CREDENTIAL in field 'password-field-title' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "dba371c2db930768",
+          "type": "DATA_CREDENTIAL",
+          "title": "Sensitive Field Detected: show-password",
+          "severity": "MEDIUM",
+          "score": 55,
+          "probability": "43.9%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_CREDENTIAL"
+          ],
+          "description": "Detected DATA_CREDENTIAL in field 'show-password' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "311d1241374f7613",
+          "type": "DATA_CREDENTIAL",
+          "title": "Sensitive Field Detected: sl-forgot-password",
+          "severity": "MEDIUM",
+          "score": 55,
+          "probability": "43.9%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_CREDENTIAL"
+          ],
+          "description": "Detected DATA_CREDENTIAL in field 'sl-forgot-password' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "aea2ee95679f3799",
+          "type": "DATA_PII_EMAIL",
+          "title": "Sensitive Field Detected: userid-placeholder",
+          "severity": "MEDIUM",
+          "score": 38,
+          "probability": "30.3%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_PII_EMAIL"
+          ],
+          "description": "Detected DATA_PII_EMAIL in field 'userid-placeholder' via FORMAT_ENGINE (confidence: 96%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.96,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "38bce9b90e78a869",
+          "type": "DATA_PII_PHONE",
+          "title": "Sensitive Field Detected: phone-label",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "16.0%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_PII_PHONE"
+          ],
+          "description": "Detected DATA_PII_PHONE in field 'phone-label' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "9fa8ad60621b2e0e",
+          "type": "DATA_PII_PHONE",
+          "title": "Sensitive Field Detected: phone-title",
+          "severity": "LOW",
+          "score": 20,
+          "probability": "16.0%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_PII_PHONE"
+          ],
+          "description": "Detected DATA_PII_PHONE in field 'phone-title' via NAME_ENGINE_COMPOUND (confidence: 75%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.75,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "facf494d55205cdd",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: title-part1",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'title-part1' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "46dd6edafdd68fa1",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: title-part2",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'title-part2' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "b430cfcb72e6c4b7",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: title",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'title' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "78d8781e9953c0ab",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: continue-button",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'continue-button' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "16d8f7e4ada6f7fb",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: footer-divider",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'footer-divider' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "ef8838a7396d4a9f",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: or",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'or' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "e4b140428c48c188",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: realm-field-title",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'realm-field-title' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "6e2786d42aaf201f",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: cancel-button",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'cancel-button' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "e1d096c9ef86c7e0",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: close-button",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'close-button' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "e7722a2d9254705e",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: title-cloud",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'title-cloud' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "6f91cb093a9287be",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: answer-label",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'answer-label' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "6c22842f0c2ab2a6",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: next-button",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'next-button' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "3c6da1a7be67af46",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: question-label",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'question-label' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "f29f42a8901b8e1c",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: verisign-title",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'verisign-title' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "77e9f09170b15f53",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: privacy-link",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'privacy-link' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "2c1accb619b5199b",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: launch",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'launch' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "eefc2d41aea29b0b",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: title-2",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'title-2' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "f1c3329553be0bac",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: catalog-link",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'catalog-link' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "9b4d0da3761f9d6e",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: docs-link",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'docs-link' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "da29e5d244d3e548",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: pricing-link",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'pricing-link' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "e5a7de4c3d114bf4",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: status-link",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'status-link' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "aba3da1d1f9f5543",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: cancel",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'cancel' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "ed22cf9fd046f857",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: confirm",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.003887",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'confirm' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "0dac56823e53094e",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: user",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.000000",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'user' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "aaec69af74f750fc",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: id",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.000185",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'id' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "ec465451e59cffd1",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: type",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.000185",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'type' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "cbecdf561b2fd324",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: code",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'code' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "19b73b82b7ea83c1",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: purpose",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'purpose' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "1c169bec5de09ec2",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: hierarchy",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'hierarchy' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "50776388865201e0",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: name",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'name' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "748147786acf82cb",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: ut10",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'ut10' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "3412f1076932c2da",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: ut15",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'ut15' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "25913e636803bd5f",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: pageCategoryName",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'pageCategoryName' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "6b9b8026ea42f2ac",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: primaryCategory",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'primaryCategory' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "c32a368b15a1f841",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: country",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'country' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "388e08f66b180c9f",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: siteID",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'siteID' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "11cc5d0cb337ae11",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: language",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'language' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        },
+        {
+          "id": "c60c461929068fa6",
+          "type": "DATA_NETWORK",
+          "title": "Sensitive Field Detected: universalContentId",
+          "severity": "LOW",
+          "score": 9,
+          "probability": "7.2%",
+          "centrality": "0.002036",
+          "attackChains": [],
+          "attackChainsCount": 0,
+          "detectedBy": "DataScanner",
+          "detectedByEngines": [
+            "DataScanner"
+          ],
+          "correlationNote": "Single-engine detection — confidence reduced",
+          "evidence": [
+            "DATA_NETWORK"
+          ],
+          "description": "Detected DATA_NETWORK in field 'universalContentId' via FORMAT_ENGINE (confidence: 72%).",
+          "remediation": "Review and remediate.",
+          "reasoning": [
+            "Single-engine detection — confidence reduced"
+          ],
+          "confidence": 0.72,
+          "bypassBayesian": false,
+          "_ctxUncertainty": 0.505,
+          "_ctxConflicts": [],
+          "_ctxSpecActionable": {
+            "auth": false,
+            "transport": true,
+            "dataRisk": true,
+            "apiContext": true
+          }
+        }
+      ]
+    }
+  },
+  "intelligence": {
+    "suppressionLog": [],
+    "crossEngineCorrelations": 0,
+    "evidenceWeights": {
+      "PUBLIC_ACCESS": {
+        "pIfTrue": 0.85,
+        "pIfFalse": 0.15
+      },
+      "WEAK_AUTH": {
+        "pIfTrue": 0.92,
+        "pIfFalse": 0.08
+      },
+      "ADMIN_ROUTE": {
+        "pIfTrue": 0.78,
+        "pIfFalse": 0.35
+      },
+      "SENSITIVE_DATA": {
+        "pIfTrue": 0.88,
+        "pIfFalse": 0.12
+      },
+      "WRITE_OPERATION": {
+        "pIfTrue": 0.7,
+        "pIfFalse": 0.3
+      },
+      "HIGH_CENTRALITY": {
+        "pIfTrue": 0.75,
+        "pIfFalse": 0.25
+      },
+      "HTTP_TRANSPORT": {
+        "pIfTrue": 0.9,
+        "pIfFalse": 0.1
+      },
+      "DEEP_ATTACK_PATH": {
+        "pIfTrue": 0.95,
+        "pIfFalse": 0.05
+      },
+      "INCONSISTENT_AUTH": {
+        "pIfTrue": 0.8,
+        "pIfFalse": 0.2
+      },
+      "CORS_WILDCARD": {
+        "pIfTrue": 0.72,
+        "pIfFalse": 0.28
+      }
+    },
+    "engineTrustWeights": {
+      "ProtocolAnalyzer": 0.95,
+      "AuthAnalyzer": 0.85,
+      "DataScanner": 0.9,
+      "CorsRateLimiter": 0.78,
+      "WebhookAnalyzer": 0.8,
+      "LoggingMonitor": 0.8,
+      "ComplianceEngine": 0.8,
+      "CortexOmega_IDDFS": 0.9,
+      "SecurityCore": 0.7,
+      "ScoringEngine": 0.7,
+      "CortexOmega": 1
+    }
+  }
+}

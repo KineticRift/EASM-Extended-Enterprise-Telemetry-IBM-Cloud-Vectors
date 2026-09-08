@@ -1,0 +1,3333 @@
+{
+  
+    "openapi": "3.0.1",
+    "info": {
+      "title": "LegacyBridge Recovered API",
+      "version": "1.0.0",
+      "description": "High-fidelity OpenAPI 3.0.1 specification auto-recovered by LegacyBridge ResponseSanitizer v2.",
+      "contact": {
+        "name": "LegacyBridge Engineering",
+        "email": "devops@legacybridge.internal"
+      },
+      "license": {
+        "name": "Proprietary — Internal Use Only"
+      },
+      "x-generated-by": "LegacyBridge ResponseSanitizer v2",
+      "x-generated-at": "2026-09-08T20:13:30.957Z",
+      "x-recovery-note": "Field types, constraints, and relationships are statistically inferred from legacy stream data."
+    },
+    "tags": [
+      {
+        "name": "Login",
+        "description": "Operations related to the **Login** resource group."
+      },
+      {
+        "name": "Mgmt",
+        "description": "Operations related to the **Mgmt** resource group."
+      },
+      {
+        "name": "Dle",
+        "description": "Operations related to the **Dle** resource group."
+      },
+      {
+        "name": "Utag",
+        "description": "Operations related to the **Utag** resource group."
+      },
+      {
+        "name": "Notice",
+        "description": "Operations related to the **Notice** resource group."
+      }
+    ],
+    "paths": {
+      "/login/locales/en/translation.json": {
+        "get": {
+          "summary": "GET /login/locales/en/translation.json",
+          "description": "Retrieves translation.json record(s). Recovered from 2 legacy stream records and statistically verified.",
+          "operationId": "getLoginLocalesEnTranslation.json",
+          "tags": [
+            "Login"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 2 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/LoginLocalesEnTranslationJsonGetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/mgmt/idaas/user/status/": {
+        "get": {
+          "summary": "GET /v1/mgmt/idaas/user/status/",
+          "description": "Retrieves status record(s). Recovered from 4 legacy stream records and statistically verified.",
+          "operationId": "getMgmtIdaasUserStatus",
+          "tags": [
+            "Mgmt"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 4 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/MgmtIdaasUserStatusGetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login/api/authorize/realms": {
+        "get": {
+          "summary": "GET /login/api/authorize/realms",
+          "description": "Retrieves realms record(s). Recovered from 2 legacy stream records and statistically verified.",
+          "operationId": "getLoginAuthorizeRealms",
+          "tags": [
+            "Login"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 2 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/LoginAuthorizeRealmsGetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login/getSSORedirect": {
+        "get": {
+          "summary": "GET /login/getSSORedirect",
+          "description": "Retrieves get ssoredirect record(s). Recovered from 2 legacy stream records and statistically verified.",
+          "operationId": "getLoginGetSSORedirect",
+          "tags": [
+            "Login"
+          ],
+          "parameters": [
+            {
+              "name": "state",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Lifecycle state or classification. Consult the enum list for allowed values."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 2 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/LoginGetSSORedirectState2F3FloginMethod3DRedHatGetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/dle/ibm/web/p_278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777f.js": {
+        "get": {
+          "summary": "GET /dle/ibm/web/p_278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777f.js",
+          "description": "Retrieves p 278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777f.js record(s). Recovered from 2 legacy stream records and statistically verified.",
+          "operationId": "getDleIbmWebP_278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777f.js",
+          "tags": [
+            "Dle"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 2 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/DleIbmWebP278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777fJsGetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/utag/ibm/web/prod/utag.js": {
+        "get": {
+          "summary": "GET /utag/ibm/web/prod/utag.js",
+          "description": "Retrieves utag.js record(s). Recovered from 8 legacy stream records and statistically verified.",
+          "operationId": "getUtagIbmWebProdUtag.js",
+          "tags": [
+            "Utag"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 8 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UtagIbmWebProdUtagJsGetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/notice": {
+        "get": {
+          "summary": "GET /notice",
+          "description": "Retrieves notice record(s). Recovered from 8 legacy stream records and statistically verified.",
+          "operationId": "getNotice",
+          "tags": [
+            "Notice"
+          ],
+          "parameters": [
+            {
+              "name": "c",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The c attribute of this entity."
+            },
+            {
+              "name": "domain",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The domain attribute of this entity."
+            },
+            {
+              "name": "country",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Aggregate count or quantity for country. Non-negative integer."
+            },
+            {
+              "name": "state",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Lifecycle state or classification. Consult the enum list for allowed values."
+            },
+            {
+              "name": "language",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "format": "locale",
+                "example": "en-US"
+              },
+              "description": "The language attribute of this entity."
+            },
+            {
+              "name": "privacypolicylink",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Resolvable URI for privacypolicylink. Must be a well-formed absolute or relative URL."
+            },
+            {
+              "name": "text",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Free-text narrative for text. May contain Markdown."
+            },
+            {
+              "name": "js",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The js attribute of this entity."
+            },
+            {
+              "name": "noticeType",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The notice type attribute of this entity."
+            },
+            {
+              "name": "pcookie",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The pcookie attribute of this entity."
+            },
+            {
+              "name": "gtm",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The gtm attribute of this entity."
+            },
+            {
+              "name": "cdn",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The cdn attribute of this entity."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response. Recovered from 8 legacy stream record(s).",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NoticeCTeconsentDomainIbmComCountryNLStateUndefinedLanguageEnPrivacypolicylinkHttps:WwwIbmComPrivacyTextTrueJsNjNoticeTypeBbPcookieGtm1Cdn1GetResponse"
+                  }
+                }
+              },
+              "headers": {
+                "X-Request-ID": {
+                  "description": "Unique request identifier for tracing.",
+                  "schema": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "X-Total-Count": {
+                  "description": "Total matching records (list endpoints).",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request — malformed syntax.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized — missing or invalid credentials.",
+              "headers": {
+                "WWW-Authenticate": {
+                  "description": "Authentication challenge.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden — insufficient permissions.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found — resource does not exist.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "Conflict — current state prevents this operation.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ConflictError"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Unprocessable Entity — semantic validation errors.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests — rate limit exceeded.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Seconds to wait before retrying.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Limit": {
+                  "description": "Request limit per window.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Remaining": {
+                  "description": "Requests remaining.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                "X-RateLimit-Reset": {
+                  "description": "Reset Unix timestamp.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RateLimitError"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error — unexpected condition.",
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable — temporarily unable to handle request.",
+              "headers": {
+                "Retry-After": {
+                  "description": "Suggested seconds to wait.",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "content": {
+                "application/problem+json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "LoginLocalesEnTranslationJsonGetResponse": {
+          "type": "object",
+          "properties": {
+            "auto-login-panel": {
+              "type": "object",
+              "properties": {
+                "premium1-text": {
+                  "type": "string",
+                  "example": "Preparing your session, please wait...",
+                  "description": "Free-text narrative for premium1 text. May contain Markdown."
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Logging you in, please wait...",
+                  "description": "Free-text narrative for text. May contain Markdown."
+                },
+                "title-part1": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "IBM",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "title-part2": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Cloud",
+                  "description": "RFC 1123 DNS hostname."
+                }
+              },
+              "required": [
+                "premium1-text",
+                "text",
+                "title-part1",
+                "title-part2"
+              ]
+            },
+            "copyright-clause": {
+              "type": "string",
+              "example": "© Copyright IBM Corp. 2014, {{currentYear}}. All rights reserved.",
+              "description": "The copyright clause attribute of this entity."
+            },
+            "dust": {
+              "type": "object",
+              "properties": {
+                "appDescription": {
+                  "type": "string",
+                  "example": "Start building immediately using 190+ unique services.",
+                  "description": "Free-text narrative for app description. May contain Markdown."
+                },
+                "appTitle": {
+                  "type": "string",
+                  "example": "Log in to IBM Cloud – IBM Cloud",
+                  "description": "Human-readable label for app title. Suitable for UI display."
+                }
+              },
+              "required": [
+                "appDescription",
+                "appTitle"
+              ]
+            },
+            "error-header": {
+              "type": "object",
+              "properties": {
+                "details": {
+                  "type": "string",
+                  "example": "[Click to see details]",
+                  "description": "Free-text narrative for details. May contain Markdown."
+                },
+                "request-id": {
+                  "type": "string",
+                  "example": "Transaction ID",
+                  "description": "The request id attribute of this entity."
+                },
+                "title": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Error",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "warning-title": {
+                  "type": "string",
+                  "example": "Login issue",
+                  "description": "Human-readable label for warning title. Suitable for UI display."
+                }
+              },
+              "required": [
+                "details",
+                "request-id",
+                "title",
+                "warning-title"
+              ]
+            },
+            "general": {
+              "type": "object",
+              "properties": {
+                "error-messages": {
+                  "type": "object",
+                  "properties": {
+                    "duplicate-uaa-users": {
+                      "type": "string",
+                      "example": "There’s an issue with how this account is configured. To get help with resolving the issue, contact IBM Cloud Support at…",
+                      "description": "The duplicate uaa users attribute of this entity."
+                    },
+                    "ip-address-restriction": {
+                      "type": "string",
+                      "example": "Login from your IP address is not permitted.",
+                      "description": "The ip address restriction attribute of this entity."
+                    },
+                    "local-storage-exceeded-remember-me": {
+                      "type": "string",
+                      "example": "Your user ID cannot be remembered because your browser's local storage is full.",
+                      "description": "The local storage exceeded remember me attribute of this entity."
+                    },
+                    "loop-detected": {
+                      "type": "string",
+                      "example": "There's an issue with your login session. Try logging in again after clearing your browser cache and cookies, or try a p…",
+                      "description": "The loop detected attribute of this entity."
+                    },
+                    "retrieve-session": {
+                      "type": "string",
+                      "example": "There's an issue with logging you in right now.  Try again in a few minutes.  Unable to retrieve session information.",
+                      "description": "The retrieve session attribute of this entity."
+                    }
+                  },
+                  "required": [
+                    "duplicate-uaa-users",
+                    "ip-address-restriction",
+                    "local-storage-exceeded-remember-me",
+                    "loop-detected",
+                    "retrieve-session"
+                  ]
+                },
+                "title-part1": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "IBM",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "title-part2": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Cloud",
+                  "description": "RFC 1123 DNS hostname."
+                }
+              },
+              "required": [
+                "error-messages",
+                "title-part1",
+                "title-part2"
+              ]
+            },
+            "korea-privacy-link": {
+              "type": "string",
+              "example": "IBM Korea Privacy Statement",
+              "description": "Resolvable URI for korea privacy link. Must be a well-formed absolute or relative URL."
+            },
+            "login-panel": {
+              "type": "object",
+              "properties": {
+                "confirm-id-type": {
+                  "type": "string",
+                  "example": "Confirm ID type is correct",
+                  "description": "The confirm id type attribute of this entity."
+                },
+                "continue-button": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Continue",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "create-new-account": {
+                  "type": "string",
+                  "example": "Create an account",
+                  "description": "Aggregate count or quantity for create new account. Non-negative integer."
+                },
+                "error-messages": {
+                  "type": "object",
+                  "properties": {
+                    "denied": {
+                      "type": "string",
+                      "example": "Check that you entered the correct credentials and try again.",
+                      "description": "The denied attribute of this entity."
+                    },
+                    "denied-title": {
+                      "type": "string",
+                      "example": "Your ID or password was entered incorrectly.",
+                      "description": "Human-readable label for denied title. Suitable for UI display."
+                    },
+                    "empty-username-title": {
+                      "type": "string",
+                      "example": "You must enter an ID.",
+                      "description": "Human-readable label for empty username title. Suitable for UI display."
+                    },
+                    "expired": {
+                      "type": "string",
+                      "example": "Contact support for more information.",
+                      "description": "The expired attribute of this entity."
+                    },
+                    "expired-title": {
+                      "type": "string",
+                      "example": "Your account has expired.",
+                      "description": "Human-readable label for expired title. Suitable for UI display."
+                    },
+                    "google-sso": {
+                      "type": "string",
+                      "example": "An error occurred logging in with Google. Try again later, and if the issue continues, contact support.",
+                      "description": "The google sso attribute of this entity."
+                    },
+                    "lockout": {
+                      "type": "string",
+                      "example": "Try again later.",
+                      "description": "The lockout attribute of this entity."
+                    },
+                    "lockout-title": {
+                      "type": "string",
+                      "example": "Your account has been temporarily locked for security purposes.",
+                      "description": "Human-readable label for lockout title. Suitable for UI display."
+                    },
+                    "realm-fetch-error": {
+                      "type": "string",
+                      "example": "We are unable to validate your ID. Try again later, and if the issue continues, contact support.",
+                      "description": "The realm fetch error attribute of this entity."
+                    },
+                    "realm-invalid-error": {
+                      "type": "string",
+                      "example": "Something went wrong while fetching available login methods. Refresh the page or contact support if the issue persists.",
+                      "description": "The realm invalid error attribute of this entity."
+                    }
+                  },
+                  "required": [
+                    "denied",
+                    "denied-title",
+                    "empty-username-title",
+                    "expired",
+                    "expired-title",
+                    "google-sso",
+                    "lockout",
+                    "lockout-title",
+                    "realm-fetch-error",
+                    "realm-invalid-error"
+                  ]
+                },
+                "footer-divider": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "or",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "forgot-id": {
+                  "type": "string",
+                  "example": "Forgot ID?",
+                  "description": "The forgot id attribute of this entity."
+                },
+                "forgot-password": {
+                  "type": "string",
+                  "example": "Forgot password?",
+                  "description": "Sensitive credential for forgot password. Write-only — must never appear in read responses.",
+                  "writeOnly": true
+                },
+                "github-sso": {
+                  "type": "object",
+                  "properties": {
+                    "button": {
+                      "type": "string",
+                      "example": "Continue with Github",
+                      "description": "The button attribute of this entity."
+                    },
+                    "login-message": {
+                      "type": "string",
+                      "example": "Loading Github...",
+                      "description": "Free-text narrative for login message. May contain Markdown."
+                    }
+                  },
+                  "required": [
+                    "button",
+                    "login-message"
+                  ]
+                },
+                "google-sso": {
+                  "type": "object",
+                  "properties": {
+                    "button": {
+                      "type": "string",
+                      "example": "Continue with Google",
+                      "description": "The button attribute of this entity."
+                    },
+                    "login-message": {
+                      "type": "string",
+                      "example": "Loading Google...",
+                      "description": "Free-text narrative for login message. May contain Markdown."
+                    },
+                    "or": {
+                      "type": "string",
+                      "format": "hostname",
+                      "example": "Or",
+                      "description": "RFC 1123 DNS hostname."
+                    }
+                  },
+                  "required": [
+                    "button",
+                    "login-message",
+                    "or"
+                  ]
+                },
+                "hide-password": {
+                  "type": "string",
+                  "example": "Hide Password",
+                  "description": "Sensitive credential for hide password. Write-only — must never appear in read responses.",
+                  "writeOnly": true
+                },
+                "loading-text": {
+                  "type": "string",
+                  "example": "Please wait. Loading....",
+                  "description": "Free-text narrative for loading text. May contain Markdown."
+                },
+                "login-button": {
+                  "type": "string",
+                  "example": "Log in",
+                  "description": "The login button attribute of this entity."
+                },
+                "no-account-text": {
+                  "type": "string",
+                  "example": "Don't have an account?",
+                  "description": "Aggregate count or quantity for no account text. Non-negative integer."
+                },
+                "password-field-error-message": {
+                  "type": "string",
+                  "example": "Enter your password",
+                  "description": "Free-text narrative for password field error message. May contain Markdown.",
+                  "writeOnly": true
+                },
+                "password-field-title": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Password",
+                  "description": "RFC 1123 DNS hostname.",
+                  "writeOnly": true
+                },
+                "realm-check-in-progress-message": {
+                  "type": "string",
+                  "example": "Checking ID",
+                  "description": "Free-text narrative for realm check in progress message. May contain Markdown."
+                },
+                "realm-field-title": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "ID",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "realm-picker": {
+                  "type": "object",
+                  "properties": {
+                    "ibm": {
+                      "type": "string",
+                      "example": "Log in with IBMid",
+                      "description": "The ibm attribute of this entity."
+                    },
+                    "select-realm": {
+                      "type": "string",
+                      "example": "Sign in with",
+                      "description": "The select realm attribute of this entity."
+                    },
+                    "selected-realm": {
+                      "type": "string",
+                      "example": "Enter your {{realmLabel}}",
+                      "description": "The selected realm attribute of this entity."
+                    },
+                    "softlayer": {
+                      "type": "string",
+                      "example": "Log in with Softlayer ID",
+                      "description": "The softlayer attribute of this entity."
+                    },
+                    "switch-realm": {
+                      "type": "string",
+                      "example": "Log in with {{realmLabel}}",
+                      "description": "The switch realm attribute of this entity."
+                    }
+                  },
+                  "required": [
+                    "ibm",
+                    "select-realm",
+                    "selected-realm",
+                    "softlayer",
+                    "switch-realm"
+                  ]
+                },
+                "realm-switch-message": {
+                  "type": "string",
+                  "example": "Switching account type",
+                  "description": "Free-text narrative for realm switch message. May contain Markdown."
+                },
+                "redhat-sso": {
+                  "type": "object",
+                  "properties": {
+                    "button": {
+                      "type": "string",
+                      "example": "Continue with Red Hat",
+                      "description": "The button attribute of this entity."
+                    },
+                    "login-message": {
+                      "type": "string",
+                      "example": "Loading Red Hat...",
+                      "description": "Free-text narrative for login message. May contain Markdown."
+                    }
+                  },
+                  "required": [
+                    "button",
+                    "login-message"
+                  ]
+                },
+                "remember-me": {
+                  "type": "string",
+                  "example": "Remember ID",
+                  "description": "The remember me attribute of this entity."
+                },
+                "session-expired": {
+                  "type": "string",
+                  "example": "Your session expired.  Log back in to continue.",
+                  "description": "The session expired attribute of this entity."
+                },
+                "show-password": {
+                  "type": "string",
+                  "example": "Show Password",
+                  "description": "Sensitive credential for show password. Write-only — must never appear in read responses.",
+                  "writeOnly": true
+                },
+                "sign-in-as-different-user": {
+                  "type": "string",
+                  "example": "Sign in as a different user",
+                  "description": "The sign in as different user attribute of this entity."
+                },
+                "sl-forgot-id": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string",
+                      "example": "You can recover your ID by contacting your account administrator.",
+                      "description": "Free-text narrative for description. May contain Markdown."
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Forgot your ID?",
+                      "description": "Human-readable label for title. Suitable for UI display."
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "title"
+                  ]
+                },
+                "sl-forgot-password": {
+                  "type": "object",
+                  "properties": {
+                    "cancel-button": {
+                      "type": "string",
+                      "format": "hostname",
+                      "example": "Cancel",
+                      "description": "RFC 1123 DNS hostname."
+                    },
+                    "close-button": {
+                      "type": "string",
+                      "format": "hostname",
+                      "example": "Close",
+                      "description": "RFC 1123 DNS hostname."
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "If you have forgotten your password, you can use this dialog to initiate a reset process.   Enter your Softlayer User ID…",
+                      "description": "Free-text narrative for description. May contain Markdown."
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "There was an error while attempting to send your password reset email.  Please try again later.",
+                      "description": "The error attribute of this entity."
+                    },
+                    "send-button": {
+                      "type": "string",
+                      "example": "Send Reset Email",
+                      "description": "The send button attribute of this entity."
+                    },
+                    "sending": {
+                      "type": "string",
+                      "example": "Sending a password reset email",
+                      "description": "The sending attribute of this entity."
+                    },
+                    "sent": {
+                      "type": "string",
+                      "example": "Your password reset email has been sent.",
+                      "description": "The sent attribute of this entity."
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Forgot your password?",
+                      "description": "Human-readable label for title. Suitable for UI display."
+                    },
+                    "userid-field": {
+                      "type": "string",
+                      "example": "User ID",
+                      "description": "The userid field attribute of this entity."
+                    },
+                    "userid-field-empty": {
+                      "type": "string",
+                      "example": "Please enter your user ID",
+                      "description": "The userid field empty attribute of this entity."
+                    }
+                  },
+                  "required": [
+                    "cancel-button",
+                    "close-button",
+                    "description",
+                    "error",
+                    "send-button",
+                    "sending",
+                    "sent",
+                    "title",
+                    "userid-field",
+                    "userid-field-empty"
+                  ],
+                  "writeOnly": true
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Log in to IBM",
+                  "description": "Human-readable label for title. Suitable for UI display."
+                },
+                "title-cloud": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Cloud",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "title-session-expired": {
+                  "type": "string",
+                  "example": "Log in to IBM",
+                  "description": "Human-readable label for title session expired. Suitable for UI display."
+                },
+                "unremember-control-tooltip": {
+                  "type": "string",
+                  "example": "Forget this user",
+                  "description": "The unremember control tooltip attribute of this entity."
+                },
+                "userid-field-error-message": {
+                  "type": "string",
+                  "example": "Enter your ID",
+                  "description": "Free-text narrative for userid field error message. May contain Markdown."
+                },
+                "userid-placeholder": {
+                  "type": "string",
+                  "format": "email",
+                  "minLength": 5,
+                  "maxLength": 254,
+                  "example": "username@example.com",
+                  "description": "Valid RFC 5321 email address."
+                }
+              },
+              "required": [
+                "confirm-id-type",
+                "continue-button",
+                "create-new-account",
+                "error-messages",
+                "footer-divider",
+                "forgot-id",
+                "forgot-password",
+                "github-sso",
+                "google-sso",
+                "hide-password",
+                "loading-text",
+                "login-button",
+                "no-account-text",
+                "password-field-error-message",
+                "password-field-title",
+                "realm-check-in-progress-message",
+                "realm-field-title",
+                "realm-picker",
+                "realm-switch-message",
+                "redhat-sso",
+                "remember-me",
+                "session-expired",
+                "show-password",
+                "sign-in-as-different-user",
+                "sl-forgot-id",
+                "sl-forgot-password",
+                "title",
+                "title-cloud",
+                "title-session-expired",
+                "unremember-control-tooltip",
+                "userid-field-error-message",
+                "userid-placeholder"
+              ]
+            },
+            "mfa-form": {
+              "type": "object",
+              "properties": {
+                "answer-field-error-message": {
+                  "type": "string",
+                  "example": "Enter an answer",
+                  "description": "Free-text narrative for answer field error message. May contain Markdown."
+                },
+                "answer-field-placeholder": {
+                  "type": "string",
+                  "example": "Enter your answer here",
+                  "description": "The answer field placeholder attribute of this entity."
+                },
+                "answer-label": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Answer",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "error-messages": {
+                  "type": "object",
+                  "properties": {
+                    "denied": {
+                      "type": "string",
+                      "example": "Try again, or try answering a different question.",
+                      "description": "The denied attribute of this entity."
+                    },
+                    "denied-title": {
+                      "type": "string",
+                      "example": "Oops! Your answer was incorrect.",
+                      "description": "Human-readable label for denied title. Suitable for UI display."
+                    }
+                  },
+                  "required": [
+                    "denied",
+                    "denied-title"
+                  ]
+                },
+                "next-button": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Next",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "phone-label": {
+                  "type": "string",
+                  "example": "Phone authentication is in progress...",
+                  "description": "Human-readable label for phone label. Suitable for UI display."
+                },
+                "phone-title": {
+                  "type": "string",
+                  "example": "Phone Authentication",
+                  "description": "Human-readable label for phone title. Suitable for UI display."
+                },
+                "question-label": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Question",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "question-title": {
+                  "type": "string",
+                  "example": "Security Question",
+                  "description": "Human-readable label for question title. Suitable for UI display."
+                },
+                "start-over-button": {
+                  "type": "string",
+                  "example": "Start over",
+                  "description": "The start over button attribute of this entity."
+                },
+                "totp-label": {
+                  "type": "string",
+                  "example": "What is your time-based one-time passcode value?",
+                  "description": "Human-readable label for totp label. Suitable for UI display."
+                },
+                "totp-title": {
+                  "type": "string",
+                  "example": "Time-based one-time passcode",
+                  "description": "Human-readable label for totp title. Suitable for UI display."
+                },
+                "verisign-label": {
+                  "type": "string",
+                  "example": "What is your Verisign value?",
+                  "description": "Human-readable label for verisign label. Suitable for UI display."
+                },
+                "verisign-title": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Verisign",
+                  "description": "RFC 1123 DNS hostname."
+                }
+              },
+              "required": [
+                "answer-field-error-message",
+                "answer-field-placeholder",
+                "answer-label",
+                "error-messages",
+                "next-button",
+                "phone-label",
+                "phone-title",
+                "question-label",
+                "question-title",
+                "start-over-button",
+                "totp-label",
+                "totp-title",
+                "verisign-label",
+                "verisign-title"
+              ]
+            },
+            "privacy-link": {
+              "type": "string",
+              "format": "hostname",
+              "example": "Privacy",
+              "description": "RFC 1123 DNS hostname."
+            },
+            "redirect-from-softlayer": {
+              "type": "object",
+              "properties": {
+                "button-text": {
+                  "type": "string",
+                  "example": "Take me to IBM Cloud",
+                  "description": "Free-text narrative for button text. May contain Markdown."
+                },
+                "title": {
+                  "type": "string",
+                  "example": "SoftLayer is now Classic Infrastructure on IBM",
+                  "description": "Human-readable label for title. Suitable for UI display."
+                },
+                "launch": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Launch",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "list-text-1": {
+                  "type": "string",
+                  "example": "View your devices, storage, network, security and services by going to the Menu icon (__icon__ ) > Classic Infrastructur…",
+                  "description": "Free-text narrative for list text 1. May contain Markdown."
+                },
+                "list-text-2": {
+                  "type": "string",
+                  "example": "Place an order from the catalog",
+                  "description": "Free-text narrative for list text 2. May contain Markdown."
+                },
+                "list-text-3": {
+                  "type": "string",
+                  "example": "Manage users and access by going to Manage > Access (IAM) > Users",
+                  "description": "Free-text narrative for list text 3. May contain Markdown."
+                },
+                "list-text-4": {
+                  "type": "string",
+                  "example": "Find your invoices and make a payment by going to Manage > Billing and usage",
+                  "description": "Free-text narrative for list text 4. May contain Markdown."
+                },
+                "subtitle": {
+                  "type": "string",
+                  "example": "You've been selected to start using the new unified cloud experience!",
+                  "description": "Human-readable label for subtitle. Suitable for UI display."
+                },
+                "tip-text": {
+                  "type": "string",
+                  "example": "<b>Tip:</b> Bookmark cloud.ibm.com to skip this page the next time you log in. And you can <a href='/docs/overview?topic…",
+                  "description": "Free-text narrative for tip text. May contain Markdown."
+                },
+                "title-2": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Cloud",
+                  "description": "RFC 1123 DNS hostname."
+                }
+              },
+              "required": [
+                "button-text",
+                "title",
+                "launch",
+                "list-text-1",
+                "list-text-2",
+                "list-text-3",
+                "list-text-4",
+                "subtitle",
+                "tip-text",
+                "title",
+                "title-2"
+              ]
+            },
+            "refresh-panel": {
+              "type": "object",
+              "properties": {
+                "first-login-text": {
+                  "type": "string",
+                  "example": "Logging you in, please wait...",
+                  "description": "Free-text narrative for first login text. May contain Markdown."
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Refreshing your session, please wait...",
+                  "description": "Free-text narrative for text. May contain Markdown."
+                },
+                "title-part1": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "IBM",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "title-part2": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Cloud",
+                  "description": "RFC 1123 DNS hostname."
+                }
+              },
+              "required": [
+                "first-login-text",
+                "text",
+                "title-part1",
+                "title-part2"
+              ]
+            },
+            "softlayer-link-panel": {
+              "type": "object",
+              "properties": {
+                "button": {
+                  "type": "string",
+                  "example": "Contact support",
+                  "description": "The button attribute of this entity."
+                },
+                "learn-more-link": {
+                  "type": "string",
+                  "example": "Learn more about the new IBM Cloud",
+                  "description": "Resolvable URI for learn more link. Must be a well-formed absolute or relative URL."
+                },
+                "text1": {
+                  "type": "string",
+                  "example": "This page can't be loaded because your infrastructure account is not fully configured as an IBM Cloud account.",
+                  "description": "Free-text narrative for text1. May contain Markdown."
+                },
+                "text1-test": {
+                  "type": "string",
+                  "example": "This page can't be loaded because your infrastructure account is not fully configured as an IBM Cloud account in the tes…",
+                  "description": "Free-text narrative for text1 test. May contain Markdown."
+                },
+                "text2": {
+                  "type": "string",
+                  "example": "To complete your account, reach out to IBM Cloud support.",
+                  "description": "Free-text narrative for text2. May contain Markdown."
+                },
+                "text2-test": {
+                  "type": "string",
+                  "example": "To get help, see <a href='https://ibm.box.com/v/atlas-account-linking'>this Box note</a>.",
+                  "description": "Free-text narrative for text2 test. May contain Markdown."
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Complete your account",
+                  "description": "Human-readable label for title. Suitable for UI display."
+                }
+              },
+              "required": [
+                "button",
+                "learn-more-link",
+                "text1",
+                "text1-test",
+                "text2",
+                "text2-test",
+                "title"
+              ]
+            },
+            "splash-footer": {
+              "type": "object",
+              "properties": {
+                "catalog-link": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Catalog",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "docs-link": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Docs",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "estimator-link": {
+                  "type": "string",
+                  "example": "Cost estimator",
+                  "description": "Resolvable URI for estimator link. Must be a well-formed absolute or relative URL."
+                },
+                "followus-title": {
+                  "type": "string",
+                  "example": "Follow us on",
+                  "description": "Human-readable label for followus title. Suitable for UI display."
+                },
+                "learn-title": {
+                  "type": "string",
+                  "example": "Learn more:",
+                  "description": "Human-readable label for learn title. Suitable for UI display."
+                },
+                "pricing-link": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Pricing",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "status-link": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Status",
+                  "description": "RFC 1123 DNS hostname."
+                }
+              },
+              "required": [
+                "catalog-link",
+                "docs-link",
+                "estimator-link",
+                "followus-title",
+                "learn-title",
+                "pricing-link",
+                "status-link"
+              ]
+            },
+            "splash-panel": {
+              "type": "object",
+              "properties": {
+                "credit-text": {
+                  "type": "string",
+                  "example": "After you upgrade to a Pay-As-You-Go account, you can use the credit to try new services or scale your projects. The cre…",
+                  "description": "Free-text narrative for credit text. May contain Markdown."
+                },
+                "credit-title": {
+                  "type": "string",
+                  "example": "Get a $200 credit when you upgrade",
+                  "description": "Human-readable label for credit title. Suitable for UI display."
+                },
+                "loading-text": {
+                  "type": "string",
+                  "example": "Please wait. Loading...",
+                  "description": "Free-text narrative for loading text. May contain Markdown."
+                },
+                "pretitle": {
+                  "type": "string",
+                  "example": "Welcome to",
+                  "description": "Human-readable label for pretitle. Suitable for UI display."
+                },
+                "signup-button": {
+                  "type": "string",
+                  "example": "Create an IBM Cloud account",
+                  "description": "The signup button attribute of this entity."
+                },
+                "subtitle": {
+                  "type": "string",
+                  "example": "Start building immediately using 190+ unique services.",
+                  "description": "Human-readable label for subtitle. Suitable for UI display."
+                }
+              },
+              "required": [
+                "credit-text",
+                "credit-title",
+                "loading-text",
+                "pretitle",
+                "signup-button",
+                "subtitle"
+              ]
+            },
+            "switch-account": {
+              "type": "object",
+              "properties": {
+                "cancel": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Cancel",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "confirm": {
+                  "type": "string",
+                  "format": "hostname",
+                  "example": "Proceed",
+                  "description": "RFC 1123 DNS hostname."
+                },
+                "description": {
+                  "type": "string",
+                  "example": "You are currently logged in to a different account. Do you want to switch to your new account? Changes you've made may n…",
+                  "description": "Free-text narrative for description. May contain Markdown."
+                },
+                "description-with-account-titles": {
+                  "type": "string",
+                  "example": "You are currently logged in to {{oldAccount}}. Do you want to switch to {{newAccount}}? Changes you've made may not be s…",
+                  "description": "Aggregate count or quantity for description with account titles. Non-negative integer."
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Switch to new account",
+                  "description": "Human-readable label for title. Suitable for UI display."
+                }
+              },
+              "required": [
+                "cancel",
+                "confirm",
+                "description",
+                "description-with-account-titles",
+                "title"
+              ]
+            }
+          },
+          "required": [
+            "auto-login-panel",
+            "copyright-clause",
+            "dust",
+            "error-header",
+            "general",
+            "korea-privacy-link",
+            "login-panel",
+            "mfa-form",
+            "privacy-link",
+            "redirect-from-softlayer",
+            "refresh-panel",
+            "softlayer-link-panel",
+            "splash-footer",
+            "splash-panel",
+            "switch-account"
+          ],
+          "example": {
+            "dust": {
+              "appTitle": "Log in to IBM Cloud – IBM Cloud",
+              "appDescription": "Start building immediately using 190+ unique services."
+            },
+            "general": {
+              "title-part1": "IBM",
+              "title-part2": "Cloud",
+              "error-messages": {
+                "loop-detected": "There's an issue with your login session. Try logging in again after clearing your browser cache and cookies, or try a private browser session.",
+                "local-storage-exceeded-remember-me": "Your user ID cannot be remembered because your browser's local storage is full.",
+                "ip-address-restriction": "Login from your IP address is not permitted.",
+                "duplicate-uaa-users": "There’s an issue with how this account is configured. To get help with resolving the issue, contact IBM Cloud Support at <a href='https://watson.service-now.com/wcp'>https://watson.service-now.com/wcp</a>. Click 'Can’t log in?', then 'Create an IBM Cloud Service Request' to create and submit a support case.",
+                "retrieve-session": "There's an issue with logging you in right now.  Try again in a few minutes.  Unable to retrieve session information."
+              }
+            },
+            "switch-account": {
+              "title": "Switch to new account",
+              "description": "You are currently logged in to a different account. Do you want to switch to your new account? Changes you've made may not be saved.",
+              "description-with-account-titles": "You are currently logged in to {{oldAccount}}. Do you want to switch to {{newAccount}}? Changes you've made may not be saved.",
+              "cancel": "Cancel",
+              "confirm": "Proceed"
+            },
+            "splash-panel": {
+              "loading-text": "Please wait. Loading...",
+              "pretitle": "Welcome to",
+              "subtitle": "Start building immediately using 190+ unique services.",
+              "credit-title": "Get a $200 credit when you upgrade",
+              "credit-text": "After you upgrade to a Pay-As-You-Go account, you can use the credit to try new services or scale your projects. The credit is valid for one month and can be used with any of our IBM Cloud offerings.",
+              "signup-button": "Create an IBM Cloud account"
+            },
+            "splash-footer": {
+              "learn-title": "Learn more:",
+              "followus-title": "Follow us on",
+              "pricing-link": "Pricing",
+              "estimator-link": "Cost estimator",
+              "catalog-link": "Catalog",
+              "docs-link": "Docs",
+              "status-link": "Status"
+            },
+            "error-header": {
+              "title": "Error",
+              "warning-title": "Login issue",
+              "details": "[Click to see details]",
+              "request-id": "Transaction ID"
+            },
+            "login-panel": {
+              "title": "Log in to IBM",
+              "title-cloud": "Cloud",
+              "title-session-expired": "Log in to IBM",
+              "session-expired": "Your session expired.  Log back in to continue.",
+              "no-account-text": "Don't have an account?",
+              "create-new-account": "Create an account",
+              "loading-text": "Please wait. Loading....",
+              "realm-field-title": "ID",
+              "confirm-id-type": "Confirm ID type is correct",
+              "userid-field-error-message": "Enter your ID",
+              "userid-placeholder": "username@example.com",
+              "password-field-title": "Password",
+              "password-field-error-message": "Enter your password",
+              "login-button": "Log in",
+              "continue-button": "Continue",
+              "remember-me": "Remember ID",
+              "sign-in-as-different-user": "Sign in as a different user",
+              "unremember-control-tooltip": "Forget this user",
+              "forgot-id": "Forgot ID?",
+              "show-password": "Show Password",
+              "hide-password": "Hide Password",
+              "forgot-password": "Forgot password?",
+              "footer-divider": "or",
+              "sl-forgot-id": {
+                "title": "Forgot your ID?",
+                "description": "You can recover your ID by contacting your account administrator."
+              },
+              "sl-forgot-password": {
+                "title": "Forgot your password?",
+                "description": "If you have forgotten your password, you can use this dialog to initiate a reset process.   Enter your Softlayer User ID into the field below, then click the send reset email button.  A reset email will be sent to the email address associated with your Softlayer User ID.",
+                "sending": "Sending a password reset email",
+                "sent": "Your password reset email has been sent.",
+                "error": "There was an error while attempting to send your password reset email.  Please try again later.",
+                "close-button": "Close",
+                "send-button": "Send Reset Email",
+                "cancel-button": "Cancel",
+                "userid-field": "User ID",
+                "userid-field-empty": "Please enter your user ID"
+              },
+              "realm-check-in-progress-message": "Checking ID",
+              "realm-switch-message": "Switching account type",
+              "realm-picker": {
+                "select-realm": "Sign in with",
+                "selected-realm": "Enter your {{realmLabel}}",
+                "switch-realm": "Log in with {{realmLabel}}",
+                "ibm": "Log in with IBMid",
+                "softlayer": "Log in with Softlayer ID"
+              },
+              "google-sso": {
+                "button": "Continue with Google",
+                "or": "Or",
+                "login-message": "Loading Google..."
+              },
+              "redhat-sso": {
+                "button": "Continue with Red Hat",
+                "login-message": "Loading Red Hat..."
+              },
+              "github-sso": {
+                "button": "Continue with Github",
+                "login-message": "Loading Github..."
+              },
+              "error-messages": {
+                "empty-username-title": "You must enter an ID.",
+                "denied-title": "Your ID or password was entered incorrectly.",
+                "denied": "Check that you entered the correct credentials and try again.",
+                "lockout-title": "Your account has been temporarily locked for security purposes.",
+                "lockout": "Try again later.",
+                "expired-title": "Your account has expired.",
+                "expired": "Contact support for more information.",
+                "realm-fetch-error": "We are unable to validate your ID. Try again later, and if the issue continues, contact support.",
+                "google-sso": "An error occurred logging in with Google. Try again later, and if the issue continues, contact support.",
+                "realm-invalid-error": "Something went wrong while fetching available login methods. Refresh the page or contact support if the issue persists."
+              }
+            },
+            "mfa-form": {
+              "question-title": "Security Question",
+              "question-label": "Question",
+              "totp-title": "Time-based one-time passcode",
+              "totp-label": "What is your time-based one-time passcode value?",
+              "verisign-title": "Verisign",
+              "verisign-label": "What is your Verisign value?",
+              "phone-title": "Phone Authentication",
+              "phone-label": "Phone authentication is in progress...",
+              "answer-label": "Answer",
+              "answer-field-placeholder": "Enter your answer here",
+              "answer-field-error-message": "Enter an answer",
+              "next-button": "Next",
+              "start-over-button": "Start over",
+              "error-messages": {
+                "denied-title": "Oops! Your answer was incorrect.",
+                "denied": "Try again, or try answering a different question."
+              }
+            },
+            "refresh-panel": {
+              "title-part1": "IBM",
+              "title-part2": "Cloud",
+              "text": "Refreshing your session, please wait...",
+              "first-login-text": "Logging you in, please wait..."
+            },
+            "auto-login-panel": {
+              "title-part1": "IBM",
+              "title-part2": "Cloud",
+              "text": "Logging you in, please wait...",
+              "premium1-text": "Preparing your session, please wait..."
+            },
+            "softlayer-link-panel": {
+              "title": "Complete your account",
+              "text1": "This page can't be loaded because your infrastructure account is not fully configured as an IBM Cloud account.",
+              "text1-test": "This page can't be loaded because your infrastructure account is not fully configured as an IBM Cloud account in the test (integration) environment.",
+              "text2": "To complete your account, reach out to IBM Cloud support.",
+              "text2-test": "To get help, see <a href='https://ibm.box.com/v/atlas-account-linking'>this Box note</a>.",
+              "button": "Contact support",
+              "learn-more-link": "Learn more about the new IBM Cloud"
+            },
+            "redirect-from-softlayer": {
+              "title": "SoftLayer is now Classic Infrastructure on IBM",
+              "title-2": "Cloud",
+              "subtitle": "You've been selected to start using the new unified cloud experience!",
+              "heading": "Here's where to find your stuff:",
+              "list-text-1": "View your devices, storage, network, security and services by going to the Menu icon (__icon__ ) > Classic Infrastructure",
+              "list-text-2": "Place an order from the catalog",
+              "list-text-3": "Manage users and access by going to Manage > Access (IAM) > Users",
+              "list-text-4": "Find your invoices and make a payment by going to Manage > Billing and usage",
+              "tip-text": "<b>Tip:</b> Bookmark cloud.ibm.com to skip this page the next time you log in. And you can <a href='/docs/overview?topic=overview-ui#redirect-cloud'>learn more</a> about transitioning to the IBM Cloud experience.",
+              "launch": "Launch",
+              "button-text": "Take me to IBM Cloud"
+            },
+            "copyright-clause": "© Copyright IBM Corp. 2014, {{currentYear}}. All rights reserved.",
+            "privacy-link": "Privacy",
+            "korea-privacy-link": "IBM Korea Privacy Statement"
+          }
+        },
+        "MgmtIdaasUserStatusGetResponse": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "string",
+              "format": "hostname",
+              "example": "Unauthenticated",
+              "description": "RFC 1123 DNS hostname."
+            }
+          },
+          "required": [
+            "user"
+          ],
+          "example": {
+            "user": "Unauthenticated"
+          }
+        },
+        "LoginAuthorizeRealmsGetResponse": {
+          "type": "object",
+          "properties": {
+            "realms": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "hostname",
+                    "example": "IBMid",
+                    "description": "Unique identifier for the entity. Immutable after creation.",
+                    "readOnly": true
+                  },
+                  "label": {
+                    "type": "string",
+                    "example": "IBMid",
+                    "description": "Human-readable label for label. Suitable for UI display."
+                  },
+                  "methods": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "format": "scope",
+                          "example": "authorization_code",
+                          "description": "Space-delimited OAuth 2.0 scope string."
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "settings": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "type": {
+                    "type": "string",
+                    "format": "hostname",
+                    "example": "IBMid",
+                    "description": "RFC 1123 DNS hostname."
+                  }
+                },
+                "required": [
+                  "id",
+                  "label",
+                  "methods",
+                  "settings",
+                  "type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "realms"
+          ],
+          "example": {
+            "realms": [
+              {
+                "id": "IBMid",
+                "label": "IBMid",
+                "methods": [
+                  {
+                    "name": "authorization_code"
+                  },
+                  {
+                    "name": "authorization_code_with_google_login"
+                  },
+                  {
+                    "name": "external"
+                  }
+                ],
+                "type": "IBMid",
+                "settings": {}
+              },
+              {
+                "id": "SL",
+                "label": "SoftLayer ID",
+                "methods": [
+                  {
+                    "name": "authorization_code"
+                  },
+                  {
+                    "name": "external"
+                  }
+                ],
+                "type": "sl",
+                "settings": {}
+              },
+              {
+                "id": "RedHat",
+                "label": "Red Hat Login",
+                "methods": [
+                  {
+                    "name": "authorization_code"
+                  }
+                ],
+                "type": "redhat",
+                "settings": {}
+              }
+            ]
+          }
+        },
+        "LoginGetSSORedirectState2F3FloginMethod3DRedHatGetResponse": {
+          "type": "object",
+          "properties": {
+            "redirectUrl": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://iam.cloud.ibm.com/identity/authorize?client_id=HOP55v1CCT&response_type=code&redirect_uri=https://cloud.ibm.com/…",
+              "description": "Absolute HTTPS URI (RFC 3986)."
+            }
+          },
+          "required": [
+            "redirectUrl"
+          ],
+          "example": {
+            "redirectUrl": "https://iam.cloud.ibm.com/identity/authorize?client_id=HOP55v1CCT&response_type=code&redirect_uri=https://cloud.ibm.com/login/callback&state=%2F%3FloginMethod%3DRedHat"
+          }
+        },
+        "DleIbmWebP278a9634690e583c8ca93e6c57d877d204d60516378d68ae2ae728c1a7c1777fJsGetResponse": {
+          "type": "object",
+          "properties": {
+            "events": {
+              "type": "object",
+              "properties": {}
+            },
+            "page": {
+              "type": "object",
+              "properties": {
+                "digitalData": {
+                  "type": "object",
+                  "properties": {
+                    "page": {
+                      "type": "object",
+                      "properties": {
+                        "category": {
+                          "type": "object",
+                          "properties": {
+                            "cmContentCategory": {
+                              "type": "string",
+                              "format": "byte",
+                              "example": "CDP_Forms",
+                              "description": "URL-safe base64-encoded payload for cm content category."
+                            },
+                            "ibm": {
+                              "type": "object",
+                              "properties": {
+                                "brands": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "format": "hostname",
+                                        "example": "IBMCloud",
+                                        "description": "RFC 1123 DNS hostname."
+                                      },
+                                      "hierarchy": {
+                                        "type": "string",
+                                        "example": "IBM/IBM Cloud",
+                                        "description": "The hierarchy attribute of this entity."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "example": "IBM Cloud",
+                                        "description": "Human-readable label for name. Suitable for UI display."
+                                      },
+                                      "relevance": {
+                                        "type": "number",
+                                        "example": 0.9999,
+                                        "description": "The relevance attribute of this entity."
+                                      }
+                                    },
+                                    "required": [
+                                      "code",
+                                      "hierarchy",
+                                      "name",
+                                      "relevance"
+                                    ]
+                                  }
+                                },
+                                "marketingEntity": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "format": "hostname",
+                                        "example": "PROD000835",
+                                        "description": "RFC 1123 DNS hostname."
+                                      },
+                                      "hierarchy": {
+                                        "type": "string",
+                                        "example": "Compute and servers/IBM Cloud",
+                                        "description": "The hierarchy attribute of this entity."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "example": "IBM Cloud",
+                                        "description": "Human-readable label for name. Suitable for UI display."
+                                      },
+                                      "relevance": {
+                                        "type": "number",
+                                        "example": 0.9999,
+                                        "description": "The relevance attribute of this entity."
+                                      }
+                                    },
+                                    "required": [
+                                      "code",
+                                      "hierarchy",
+                                      "name",
+                                      "relevance"
+                                    ]
+                                  }
+                                },
+                                "purpose": {
+                                  "type": "string",
+                                  "format": "hostname",
+                                  "example": "NMK",
+                                  "description": "RFC 1123 DNS hostname."
+                                },
+                                "topics": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "code": {
+                                        "type": "string",
+                                        "format": "hostname",
+                                        "example": "ConsultingServices",
+                                        "description": "RFC 1123 DNS hostname."
+                                      },
+                                      "hierarchy": {
+                                        "type": "string",
+                                        "format": "hostname",
+                                        "example": "Services",
+                                        "description": "RFC 1123 DNS hostname."
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "format": "hostname",
+                                        "example": "Services",
+                                        "description": "RFC 1123 DNS hostname."
+                                      },
+                                      "relevance": {
+                                        "type": "number",
+                                        "example": 0.9999,
+                                        "description": "The relevance attribute of this entity."
+                                      }
+                                    },
+                                    "required": [
+                                      "code",
+                                      "hierarchy",
+                                      "name",
+                                      "relevance"
+                                    ]
+                                  }
+                                },
+                                "unifiedTaxonomyL10": {
+                                  "type": "string",
+                                  "example": "IBM Software",
+                                  "description": "Monetary value for unified taxonomy l10. Use a currency field companion for multi-currency support."
+                                },
+                                "unifiedTaxonomyL15": {
+                                  "type": "string",
+                                  "example": "Public Cloud Platform",
+                                  "description": "Monetary value for unified taxonomy l15. Use a currency field companion for multi-currency support."
+                                },
+                                "ut10": {
+                                  "type": "string",
+                                  "format": "hostname",
+                                  "example": "10A00",
+                                  "description": "RFC 1123 DNS hostname."
+                                },
+                                "ut15": {
+                                  "type": "string",
+                                  "format": "hostname",
+                                  "example": "153QH",
+                                  "description": "RFC 1123 DNS hostname."
+                                }
+                              },
+                              "required": [
+                                "brands",
+                                "marketingEntity",
+                                "purpose",
+                                "topics",
+                                "unifiedTaxonomyL10",
+                                "unifiedTaxonomyL15",
+                                "ut10",
+                                "ut15"
+                              ]
+                            },
+                            "pageCategoryName": {
+                              "type": "string",
+                              "format": "hostname",
+                              "example": "unspecified",
+                              "description": "RFC 1123 DNS hostname."
+                            },
+                            "primaryCategory": {
+                              "type": "string",
+                              "format": "hostname",
+                              "example": "PC000",
+                              "description": "RFC 1123 DNS hostname."
+                            }
+                          },
+                          "required": [
+                            "cmContentCategory",
+                            "pageCategoryName",
+                            "primaryCategory"
+                          ]
+                        },
+                        "pageInfo": {
+                          "type": "object",
+                          "properties": {
+                            "ibm": {
+                              "type": "object",
+                              "properties": {
+                                "country": {
+                                  "type": "string",
+                                  "format": "hostname",
+                                  "example": "US",
+                                  "description": "RFC 1123 DNS hostname."
+                                },
+                                "owner": {
+                                  "type": "string",
+                                  "example": "CN=Jason Andrews1/OU=US/O=IBM@IBMMail",
+                                  "description": "The owner attribute of this entity."
+                                },
+                                "siteID": {
+                                  "type": "string",
+                                  "format": "hostname",
+                                  "example": "Bluemix",
+                                  "description": "RFC 1123 DNS hostname."
+                                }
+                              },
+                              "required": [
+                                "country",
+                                "owner",
+                                "siteID"
+                              ]
+                            },
+                            "language": {
+                              "type": "string",
+                              "format": "hostname",
+                              "example": "en-US",
+                              "description": "RFC 1123 DNS hostname."
+                            },
+                            "universalContentId": {
+                              "type": "string",
+                              "format": "hostname",
+                              "example": "00e14f918981ec1c",
+                              "description": "Unique identifier for the universal content. Immutable after creation."
+                            }
+                          },
+                          "required": [
+                            "language",
+                            "universalContentId"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "x-pagination-style": "limit-only",
+                  "x-pagination-fields": {
+                    "cursor": [],
+                    "offset": [
+                      "page"
+                    ],
+                    "limit": [],
+                    "total": []
+                  }
+                },
+                "dleVersion": {
+                  "type": "string",
+                  "example": "2025-09-23 05:16:02.3",
+                  "description": "The dle version attribute of this entity."
+                },
+                "team": {
+                  "type": "string",
+                  "example": "Cloud and Data Platform",
+                  "description": "The team attribute of this entity."
+                },
+                "url": {
+                  "type": "string",
+                  "example": "cloud.ibm.com/login",
+                  "description": "Resolvable URI for url. Must be a well-formed absolute or relative URL."
+                }
+              },
+              "required": [
+                "dleVersion",
+                "team",
+                "url"
+              ]
+            }
+          },
+          "required": [
+            "events",
+            "page"
+          ],
+          "example": {
+            "page": {
+              "dleVersion": "2025-09-23 05:16:02.3",
+              "url": "cloud.ibm.com/login",
+              "digitalData.page.pageInfo.universalContentId": "00e14f918981ec1c",
+              "digitalData.page.pageInfo.ibm.siteID": "Bluemix",
+              "digitalData.page.category.cmContentCategory": "CDP_Forms",
+              "digitalData.page.category.primaryCategory": "PC000",
+              "digitalData.page.category.pageCategoryName": "unspecified",
+              "team": "Cloud and Data Platform",
+              "digitalData.page.category.ibm.ut10": "10A00",
+              "digitalData.page.category.ibm.ut15": "153QH",
+              "digitalData.page.category.ibm.unifiedTaxonomyL10": "IBM Software",
+              "digitalData.page.category.ibm.unifiedTaxonomyL15": "Public Cloud Platform",
+              "digitalData.page.pageInfo.ibm.owner": "CN=Jason Andrews1/OU=US/O=IBM@IBMMail",
+              "digitalData.page.pageInfo.ibm.country": "US",
+              "digitalData.page.pageInfo.language": "en-US",
+              "digitalData.page.category.ibm.purpose": "NMK",
+              "digitalData.page.category.ibm.topics": [
+                {
+                  "code": "ConsultingServices",
+                  "name": "Services",
+                  "hierarchy": "Services",
+                  "relevance": 0.9999
+                },
+                {
+                  "code": "CloudComputing",
+                  "name": "Cloud",
+                  "hierarchy": "Cloud",
+                  "relevance": 0.9999
+                }
+              ],
+              "digitalData.page.category.ibm.brands": [
+                {
+                  "code": "IBMCloud",
+                  "name": "IBM Cloud",
+                  "hierarchy": "IBM/IBM Cloud",
+                  "relevance": 0.9999
+                }
+              ],
+              "digitalData.page.category.ibm.marketingEntity": [
+                {
+                  "code": "PROD000835",
+                  "name": "IBM Cloud",
+                  "hierarchy": "Compute and servers/IBM Cloud",
+                  "relevance": 0.9999
+                }
+              ]
+            },
+            "events": {}
+          },
+          "x-pagination-style": "limit-only",
+          "x-pagination-fields": {
+            "cursor": [],
+            "offset": [
+              "page"
+            ],
+            "limit": [],
+            "total": []
+          }
+        },
+        "UtagIbmWebProdUtagJsGetResponse": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {}
+            },
+            {
+              "type": "object",
+              "additionalProperties": true
+            }
+          ]
+        },
+        "NoticeCTeconsentDomainIbmComCountryNLStateUndefinedLanguageEnPrivacypolicylinkHttps:WwwIbmComPrivacyTextTrueJsNjNoticeTypeBbPcookieGtm1Cdn1GetResponse": {
+          "type": "object",
+          "properties": {},
+          "example": {}
+        },
+        "ProblemDetails": {
+          "type": "object",
+          "description": "RFC 7807 Problem Details for HTTP APIs.",
+          "required": [
+            "type",
+            "title",
+            "status"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "format": "uri",
+              "description": "A URI reference identifying the problem type."
+            },
+            "title": {
+              "type": "string",
+              "description": "Short, human-readable summary of the problem."
+            },
+            "status": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 599,
+              "description": "HTTP status code."
+            },
+            "detail": {
+              "type": "string",
+              "description": "Human-readable explanation for this occurrence."
+            },
+            "instance": {
+              "type": "string",
+              "format": "uri",
+              "nullable": true,
+              "description": "URI of the specific problem instance."
+            }
+          },
+          "example": {
+            "type": "https://errors.example.com/not-found",
+            "title": "Not Found",
+            "status": 404,
+            "detail": "The resource could not be located."
+          }
+        },
+        "ValidationError": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ProblemDetails"
+            },
+            {
+              "type": "object",
+              "description": "Extended problem details for 422 responses.",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "Field-level validation failures.",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "field",
+                      "message"
+                    ],
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "description": "The field that failed validation."
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "Human-readable validation failure description."
+                      },
+                      "code": {
+                        "type": "string",
+                        "nullable": true,
+                        "description": "Machine-readable error code."
+                      },
+                      "value": {
+                        "nullable": true,
+                        "description": "The rejected value, if safe to expose."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "UnauthorizedError": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ProblemDetails"
+            },
+            {
+              "type": "object",
+              "description": "Authentication failure details.",
+              "properties": {
+                "auth_scheme": {
+                  "type": "string",
+                  "example": "Bearer",
+                  "description": "Expected authentication scheme."
+                },
+                "realm": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Protection space identifier."
+                }
+              }
+            }
+          ]
+        },
+        "RateLimitError": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ProblemDetails"
+            },
+            {
+              "type": "object",
+              "description": "Rate-limit exceeded details.",
+              "properties": {
+                "retry_after": {
+                  "type": "integer",
+                  "description": "Seconds until the rate-limit window resets."
+                },
+                "limit": {
+                  "type": "integer",
+                  "description": "Total requests allowed per window."
+                },
+                "remaining": {
+                  "type": "integer",
+                  "description": "Requests remaining in current window."
+                },
+                "reset_timestamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "When the window resets."
+                }
+              }
+            }
+          ]
+        },
+        "ConflictError": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ProblemDetails"
+            },
+            {
+              "type": "object",
+              "description": "Resource conflict details.",
+              "properties": {
+                "conflicting_field": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Field that caused the conflict."
+                },
+                "existing_value": {
+                  "nullable": true,
+                  "description": "Current value of the conflicting field."
+                }
+              }
+            }
+          ]
+        }
+      },
+      "securitySchemes": {
+        "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT",
+          "description": "JWT Bearer token. Header: Authorization: Bearer <token>"
+        },
+        "ApiKeyAuth": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "X-API-Key",
+          "description": "API key via request header."
+        },
+        "BasicAuth": {
+          "type": "http",
+          "scheme": "basic",
+          "description": "HTTP Basic authentication (RFC 7617)."
+        }
+      },
+      "parameters": {
+        "PageParam": {
+          "name": "page",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 1
+          },
+          "description": "Page number (1-based offset pagination)."
+        },
+        "LimitParam": {
+          "name": "limit",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          },
+          "description": "Records per page."
+        },
+        "CursorParam": {
+          "name": "cursor",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "Opaque cursor for cursor-based pagination."
+        },
+        "SortParam": {
+          "name": "sort",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "Sort field. Prefix with - for descending (e.g. -created_at)."
+        },
+        "FieldsParam": {
+          "name": "fields",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "Comma-separated list of fields to return (sparse fieldsets)."
+        },
+        "SearchParam": {
+          "name": "q",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "Full-text search query."
+        }
+      },
+      "headers": {
+        "X-Request-ID": {
+          "description": "Unique request identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "X-RateLimit-Limit": {
+          "description": "Request limit per window.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        "X-RateLimit-Remaining": {
+          "description": "Requests remaining.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        "X-RateLimit-Reset": {
+          "description": "Window reset Unix timestamp.",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        "X-Total-Count": {
+          "description": "Total matching records.",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "security": [
+      {
+        "BearerAuth": []
+      }
+    ],
+    "x-tagGroups": [
+      {
+        "name": "Recovered Endpoints",
+        "tags": [
+          "Login",
+          "Mgmt",
+          "Dle",
+          "Utag",
+          "Notice"
+        ]
+      }
+    ]
+  }
