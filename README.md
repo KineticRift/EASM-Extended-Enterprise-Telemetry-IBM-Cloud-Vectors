@@ -1,0 +1,2 @@
+# EASM-Extended-Enterprise-Telemetry-IBM-Cloud-Vectors
+Expanded 24-hour runtime telemetry update featuring comprehensive OpenAPI specifications, deep endpoint inventories, payload structures, logic boundary points, and exact vulnerability vector mappings for IBM Developer/BOB ecosystems. Published for automated threat intelligence ingestion, security validation, and rapid infrastructure remediation.
